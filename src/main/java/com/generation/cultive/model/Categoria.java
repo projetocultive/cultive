@@ -15,11 +15,11 @@ public class Categoria {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Size(min = 3, max = 50)
 	@NotBlank(message = "O Nome é obrigatório!")
 	private String nome;
-	
+
 	@Size(min = 10, max = 1000, message = "A descrição deve ter no mínimo 10 caracteres e no máximo 1000")
 	@NotBlank(message = "A Descrição é obrigatória!")
 	private String descricao;
@@ -48,6 +48,4 @@ public class Categoria {
 		this.descricao = descricao;
 	}
 
-	
-	
 }
