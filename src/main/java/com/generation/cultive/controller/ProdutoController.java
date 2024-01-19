@@ -26,7 +26,7 @@ import com.generation.cultive.repository.ProdutoRepository;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/postagens")
+@RequestMapping("/produto")
 @CrossOrigin(origins= "*", allowedHeaders = "*")
 
 public class ProdutoController {
