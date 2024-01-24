@@ -36,7 +36,7 @@ public class ProdutoController {
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 
-	@GetMapping
+	@GetMapping("/all")
 	public ResponseEntity<List<Produto>> getAll() {
 		return ResponseEntity.ok(produtoRepository.findAll());
 	}
@@ -52,7 +52,7 @@ public class ProdutoController {
 		return ResponseEntity.ok(produtoRepository.findAllByNomeContainingIgnoreCase(nome));
 	}
 
-	@PostMapping
+	@PostMapping("/cadastrar")
 	public ResponseEntity<Produto> post(@Valid @RequestBody Produto produtos) {
 		if (categoriaRepository.existsById(produtos.getCategoria().getId()))
 			return ResponseEntity.status(HttpStatus.CREATED).body(produtoRepository.save(produtos));
@@ -60,7 +60,7 @@ public class ProdutoController {
 		throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Categoria não existe!!!", null);
 	}
 	
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<Produto> put(@Valid @RequestBody Produto produtos) {
 		if (produtoRepository.existsById(produtos.getId())) {
 
